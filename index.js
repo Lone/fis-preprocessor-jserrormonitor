@@ -31,8 +31,8 @@ function addFunctionEnd(str, loc, filepath) {
 
 // 白名单
 function isInWriteList(strFunHead, conf){
-    var include = conf.include, 
-		exclude = conf.exclude,
+    var include = conf.include || null, 
+		exclude = conf.exclude || null,
 		toString = Object.prototype.toString;
 
     return !(exclude && toString.apply(exclude) == '[object RegExp]' && exclude.test(strFunHead)) && 
