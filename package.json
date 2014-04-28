@@ -1,0 +1,27 @@
+{
+  "name": "fis-preprocessor-jserrormonitor",
+  "version": "0.0.0",
+  "description": "js error monitor for dp.baidu.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lone/fis-preprocessor-jserrormonitor.git"
+  },
+  "keywords": [
+    "fis",
+    "preprocessor",
+    "js",
+    "error"
+  ],
+  "author": {
+	name: "Lone",
+	email: "chenguoliang@baidu.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lone/fis-preprocessor-jserrormonitor/issues"
+  }
+}
