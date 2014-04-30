@@ -22,7 +22,14 @@ fis.config.merge({
     settings: {
         preprocessor: {
             'jserrormonitor':  {
-                include: /init/i
+		file: {
+			include: /.js$/, //监控匹配的文件，如不指定则不监控任何文件
+			exclude: /\/lib\//i  //排除不要监控的文件
+		},
+		func: {
+			include: /init/i, //只监控匹配的函数名，如不指定则不监控
+			exclude: ''  //排除不要监控的函数
+		}
             }
         }
     }

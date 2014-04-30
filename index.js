@@ -31,7 +31,8 @@ function addFunctionEnd(str, loc, filepath) {
 
 // 白名单
 function isInWriteList(strFunHead, conf){
-    var include = conf.include || null, 
+    conf = conf || {};
+	var include = conf.include || null, 
 		exclude = conf.exclude || null,
 		toString = Object.prototype.toString;
 
@@ -45,7 +46,7 @@ function modifyFunction(arrFile, loc, filepath, conf) {
     if (/try\s*\{/.test(_strHead) || /(function\s*\([,\w\s]*\)\s*(\{))/.test(_strHead) == false || /catch\s*\(.*\)\s*\{/.test(_strEnd)) {
         return false;
     }
-    if(!isInWriteList(_strHead, conf)){
+    if(!isInWriteList(_strHead, conf.func)){
         return false;
     }
     arrFile[loc.start.line - 1] = addFunctionHead(arrFile[loc.start.line - 1], loc.start);
@@ -53,7 +54,8 @@ function modifyFunction(arrFile, loc, filepath, conf) {
 }
 
 module.exports = function(content, file, conf) {
-    if (file.rExt !== '.js') {
+    conf = conf || {};
+	if (file.rExt !== '.js' || !isInWriteList(file.id, conf.file)) {
         return content;
     }
 

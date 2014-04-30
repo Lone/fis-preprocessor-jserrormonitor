@@ -3,10 +3,10 @@ var a = '', b='';
 function A(){ 
 	this.name="A";
 
-	this.init = function(a,b){ try{
+	this.init = function(a,b){
 
 		this.name = a;
-	}catch(e){if(typeof alog != 'undefined') {alog('exception.fire', 'catch', {msg: e.message, path:'./content.js', method: '',ln:9});}}};
+	};
 }
 
 function initLog(){
@@ -14,7 +14,15 @@ function initLog(){
 
 }
 
-exports.init = function(a, b){ try{
+exports.init = function(a, b){
 
 	new A().init(a, b);
-}catch(e){if(typeof alog != 'undefined') {alog('exception.fire', 'catch', {msg: e.message, path:'./content.js', method: '',ln:20});}}};
+};
+
+$('#usrbar').click(function(e){
+	console.log('Me');
+});
+
+$('#menu').delegate('li', 'click', function(e){
+	e.preventDefault();
+});

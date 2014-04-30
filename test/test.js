@@ -5,15 +5,15 @@ fs.readFile('./content.js', 'utf8', function(err, data){
 		throw err;
 	}
 
-	//console.log(data);
 
-	var jserrormonitor = require('fis-preprocessor-jserrormonitor');
+	var jserrormonitor = require('../index.js');
 
-
-	var c = jserrormonitor(data, {id: './content.js', rExt: '.js'}, {include: /init/i});
-
-	//console.log(c);
-
+	//Î´ÅäÖÃ¼à¿ØÌõ¼þ
+	var c = jserrormonitor(data, {id: './content.js', rExt: '.js'}, {});
 	fs.writeFile('./content0.js', c);
+
+	//
+	c = jserrormonitor(data, {id: './content.js', rExt: '.js'}, {func: {include: /(init|click)/i}, file: {include: /.js$/i}});
+	fs.writeFile('./content1.js', c);
 });
 
